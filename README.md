@@ -106,7 +106,7 @@ ORDER BY tp.salary_year_avg DESC;
 - Leadership‑tilted analyst roles frequently add cloud and collaboration tooling (e.g., **Azure/AWS**, **Jira/Confluence/GitLab/Bitbucket**).
 
 *Optional figure placeholder*
-![Top Paying Skills](assets/2_top_paying_roles_skills.png)
+![Top Paying Skills](Images/Top-paying remote Data Analyst jobs.png)
 
 ---
 
