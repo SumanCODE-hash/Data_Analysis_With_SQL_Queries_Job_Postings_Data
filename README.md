@@ -64,7 +64,7 @@ LIMIT 10;
 | 10 | ERM Data Analyst | Get It Recruit – Information Technology | **184,000** | Anywhere |
 
 *Top 10 highest-paying remote Data Analyst roles*
-![Top Paying Roles](Top_10_highest-paying_remote_Data_Analyst_roles.png)
+![Top Paying Roles](Images/Top_10_highest-paying_remote_Data_Analyst_roles.png)
 
 ---
 
