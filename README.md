@@ -1,8 +1,6 @@
 # Introduction
 📊 A professional, step‑by‑step deep‑dive into the remote **Data Analyst** job market. This README distills the results of SQL analyses into clear insights on 💰 top‑paying roles, 🔥 in‑demand skills, and 🎯 skills that balance **high demand** with **high salary**.
 
-🔍 SQL queries? See them here: [project_sql folder](/project_sql/)
-
 # Background
 This analysis targets remote Data Analyst roles to reveal where compensation and skill demand intersect. The data originates from a structured job‑market dataset containing postings, companies, salaries, and required skills. The objective: produce actionable guidance for career planning and portfolio‑ready insights.
 
@@ -66,7 +64,7 @@ LIMIT 10;
 | 10 | ERM Data Analyst | Get It Recruit – Information Technology | **184,000** | Anywhere |
 
 *Top 10 highest-paying remote Data Analyst roles*
-![Top Paying Roles](Images/Top 10 highest-paying remote Data Analyst roles.png)
+![Top Paying Roles](Images/Top_10_highest_paying_remote_Data_Analyst_roles.png)
 
 ---
 
@@ -106,7 +104,7 @@ ORDER BY tp.salary_year_avg DESC;
 - Leadership‑tilted analyst roles frequently add cloud and collaboration tooling (e.g., **Azure/AWS**, **Jira/Confluence/GitLab/Bitbucket**).
 
 *Top-paying remote Data Analyst jobs*
-![Top Paying Skills](Images/Top-paying remote Data Analyst jobs.png)
+![Top Paying Skills](Images/Top_paying_remote_Data_Analyst_jobs.png)
 
 ---
 
