@@ -65,8 +65,8 @@ LIMIT 10;
 | 9 | Principal Data Analyst | SmartAsset | **186,000** | Anywhere |
 | 10 | ERM Data Analyst | Get It Recruit – Information Technology | **184,000** | Anywhere |
 
-*Optional figure placeholder*
-![Top Paying Roles](assets/1_top_paying_roles.png)
+*Images/Top 10 highest-paying remote Data Analyst roles*
+![Top Paying Roles](Images/Top 10 highest-paying remote Data Analyst roles.png)
 
 ---
 
