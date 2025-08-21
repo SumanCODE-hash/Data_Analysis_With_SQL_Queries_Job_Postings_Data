@@ -65,7 +65,7 @@ LIMIT 10;
 
 *Top 10 highest-paying remote Data Analyst roles*
 ![Top Paying Roles](Images/Top_10_highest-paying_remote_Data_Analyst_roles.png)
-
+*This chart visualizes the top 10 highest-paying remote Data Analyst roles by average annual salary. It highlights how compensation varies by role and employer, with Mantys offering the highest salary ($650K). Senior and director-level positions, such as at Meta and AT&T, also command significantly above-average pay, showing that leadership responsibilities drive higher compensation.*
 ---
 
 ## Q‑2) Skills for the Top‑Paying Jobs
@@ -105,7 +105,7 @@ ORDER BY tp.salary_year_avg DESC;
 
 *Top-paying remote Data Analyst jobs*
 ![Top Paying Skills](Images/Top_paying_remote_Data_Analyst_jobs.png)
-
+*This chart shows the skills most frequently required across the top-paying Data Analyst roles. SQL appears universally, followed closely by Python, Tableau, and cloud technologies like AWS and Azure. Collaboration and DevOps tools (e.g., GitLab, Bitbucket, Jira, Confluence) are also prevalent in senior analyst positions, reflecting the growing importance of cross-functional teamwork in high-salary roles.*
 ---
 
 ## Q‑3) Most In‑Demand Skills for Remote Data Analysts
