@@ -65,7 +65,7 @@ LIMIT 10;
 | 9 | Principal Data Analyst | SmartAsset | **186,000** | Anywhere |
 | 10 | ERM Data Analyst | Get It Recruit – Information Technology | **184,000** | Anywhere |
 
-*Images/Top 10 highest-paying remote Data Analyst roles*
+*Top 10 highest-paying remote Data Analyst roles*
 ![Top Paying Roles](Images/Top 10 highest-paying remote Data Analyst roles.png)
 
 ---
@@ -105,7 +105,7 @@ ORDER BY tp.salary_year_avg DESC;
 - **Python** and **Tableau** are prominent among high‑paying postings, with supporting stacks like **R**, **Snowflake**, **Pandas**, **Excel**.
 - Leadership‑tilted analyst roles frequently add cloud and collaboration tooling (e.g., **Azure/AWS**, **Jira/Confluence/GitLab/Bitbucket**).
 
-*Optional figure placeholder*
+*Top-paying remote Data Analyst jobs*
 ![Top Paying Skills](Images/Top-paying remote Data Analyst jobs.png)
 
 ---
