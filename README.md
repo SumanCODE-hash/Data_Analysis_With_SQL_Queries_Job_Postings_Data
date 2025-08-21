@@ -114,16 +114,33 @@ ORDER BY tp.salary_year_avg DESC;
 Aggregate postings by skill to identify highest demand.
 
 ```sql
-SELECT
-    sd.skills,
-    COUNT(sj.job_id) AS demand_count
-FROM job_postings_fact jp
-JOIN skills_job_dim sj ON jp.job_id = sj.job_id
-JOIN skills_dim sd ON sj.skill_id = sd.skill_id
-WHERE jp.job_title_short = 'Data Analyst'
-  AND jp.job_work_from_home = TRUE
-GROUP BY sd.skills
-ORDER BY demand_count DESC
+SELECT 
+    skills AS Skills_name,
+    COUNT(skills_job_dim.job_id) AS skills_demand  --- Aggregate count on job_id in --table skills_job_dim
+FROM job_postings_fact
+
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id --Join --able with job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id  --Join table --with skill_id 
+WHERE job_title_short = 'Data Analyst' AND 
+      job_no_degree_mention = FALSE
+GROUP BY
+    Skills_name
+ORDER BY
+    skills_demand DESC
+LIMIT 5;
+SELECT 
+    skills AS Skills_name,
+    COUNT(skills_job_dim.job_id) AS skills_demand  --- Aggregate count on job_id in --table skills_job_dim
+FROM job_postings_fact
+
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id --Join --able with job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id  --Join table --with skill_id 
+WHERE job_title_short = 'Data Scientist' AND 
+      job_no_degree_mention = FALSE
+GROUP BY
+    Skills_name
+ORDER BY
+    skills_demand DESC
 LIMIT 5;
 ```
 
