@@ -9,6 +9,7 @@ Question: What are the most in-demand skills for data analysts?
 --
 
 */
+
 SELECT 
     skills AS Skills_name,
     COUNT(skills_job_dim.job_id) AS skills_demand  --- Aggregate count on job_id in --table skills_job_dim
@@ -24,9 +25,6 @@ ORDER BY
     skills_demand DESC
 LIMIT 5;
 
-
-
-
 SELECT 
     skills AS Skills_name,
     COUNT(skills_job_dim.job_id) AS skills_demand  --- Aggregate count on job_id in --table skills_job_dim
@@ -41,3 +39,28 @@ GROUP BY
 ORDER BY
     skills_demand DESC
 LIMIT 5;
+
+/*
+💡 Key Insights
+
+SQL = Universal Language → #1 for Analysts, #2 for Scientists → mandatory for both paths.
+
+Python is the major divider → critical for Data Scientists (111k demand vs 40k for Analysts).
+
+Excel & Power BI → Analyst staples (not in top scientist stack).
+
+R & SAS → Still relevant for Data Scientists (stats-heavy/legacy enterprise).
+
+Visualization (Tableau) → Shared skill, but slightly higher demand for Analysts (business context).
+
+Results:
+⚖️ Data Analyst vs. Data Scientist Skills
+Skill	Data Analyst Demand	Data Scientist Demand	Who Relies More?
+SQL	60,648	75,043	Both (core skill)
+Python	39,999	111,094	Data Scientist-heavy
+Excel	46,482	–	Data Analyst-only
+Tableau	32,451	28,165	Analysts slightly more
+Power BI	26,018	–	Data Analyst-only
+R	–	58,840	Data Scientist-only
+SAS	–	28,964	Data Scientist-only
+*/
