@@ -147,9 +147,18 @@ LIMIT 5;
 **Insights (Q‑3):**
 - **SQL** leads demand for remote analysts, followed by **Excel**, **Python**, **Tableau**, and **Power BI**.
 - The mix reflects a business‑analytics core (SQL/Excel/BI) complemented by programming (Python).
+| Skill        | Data Analyst Demand | Data Scientist Demand | Who Relies More?       |
+| ------------ | ------------------- | --------------------- | ---------------------- |
+| **SQL**      | 60,648              | 75,043                | Both (core skill)      |
+| **Python**   | 39,999              | 111,094               | Data Scientist-heavy   |
+| **Excel**    | 46,482              | –                     | Data Analyst-only      |
+| **Tableau**  | 32,451              | 28,165                | Analysts slightly more |
+| **Power BI** | 26,018              | –                     | Data Analyst-only      |
+| **R**        | –                   | 58,840                | Data Scientist-only    |
+| **SAS**      | –                   | 28,964                | Data Scientist-only    |
 
 **Top 5 — Demand**
-
+Data Analyst
 | Skill     | Demand |
 |-----------|-------:|
 | SQL       | 60,648 |
