@@ -1,0 +1,94 @@
+/*
+Answer: What are the most optimal skills to learn (aka it’s in high demand and a high-paying skill)?
+- Identify skills in high demand and associated with high average salaries for Data Analyst roles
+- Concentrates on remote positions with specified salaries
+- Why? Targets skills that offer job security (high demand) and financial benefits (high salaries), 
+    offering strategic insights for career development in data analysis
+*/
+
+-- Identifies skills in high demand for Data Analyst roles
+-- Use Query #3
+
+
+WITH skill_demand AS (
+    SELECT
+        skills_dim.skill_id,.sql
+        skills_dim.skills AS Skills_name,
+        COUNT(skills_job_dim.job_id) AS skills_demand  --- Aggregate count on job_id in --table skills_job_dim
+    FROM job_postings_fact
+
+    INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id --Join --able with job_id
+    INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id  --Join table --with skill_id 
+    WHERE job_title_short = 'Data Analyst' AND 
+        job_no_degree_mention = FALSE AND
+        salary_year_avg IS NOT NULL
+    GROUP BY
+        skills_dim.skill_id
+),  avg_salary_skills AS (
+    SELECT 
+        skills_job_dim.skill_id,
+        ROUND(AVG(salary_year_avg), 0) AS avg_salary--- Aggregate count on job_id in --table skills_job_dim
+    FROM job_postings_fact
+
+    INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id --Join --able with job_id
+    INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id  --Join table --with skill_id 
+    WHERE job_title_short = 'Data Analyst' AND 
+        salary_year_avg IS NOT NULL AND
+        job_work_from_home =TRUE
+    GROUP BY
+        skills_job_dim.skill_id
+)
+
+
+SELECT
+    skill_demand.skill_id,
+    skill_demand.Skills_name,
+    skill_demand.skills_demand,
+    avg_salary_skills.avg_salary
+FROM
+    skill_demand
+INNER JOIN avg_salary_skills ON avg_salary_skills.skill_id = skill_demand.skill_id
+WHERE
+ skills_demand > 15
+ORDER BY
+    skills_demand DESC,
+    avg_salary DESC
+LIMIT 25;
+
+/*
+📌 Insights from Demand vs. Salary for Remote Data Analyst Skills
+
+Core Data Skills Dominate
+
+SQL, Excel, and Python consistently appear at the top in demand.
+
+These aren’t necessarily the highest paying, but they’re “non-negotiable” for most analyst roles.
+
+Programming & Data Engineering Skills Bring a Premium
+
+Skills like Python, R, and Spark usually command higher average salaries compared to Excel.
+
+Employers pay more for candidates who can go beyond dashboards and handle data wrangling, automation, and scalable processing.
+
+Visualization Tools Are the Middle Ground
+
+Tableau, Power BI, and Looker sit in the sweet spot: relatively high demand and mid-to-high salaries.
+
+These tools are valued because they directly connect insights to decision-makers.
+
+Cloud and Big Data Tech Add an Edge
+
+AWS, Azure, and Snowflake don’t show up as often as SQL/Excel, but when they do, salaries are significantly above average.
+
+This reflects the trend of analysts being expected to work closer to data engineering pipelines.
+
+Niche / Specialized Tools Are High Pay but Lower Demand
+
+SAS, MATLAB, and Stata pop up occasionally with strong salaries but much lower demand.
+
+These skills are highly valuable in specific industries (finance, pharmaceuticals, research), but not universal.
+
+Remote Work Raises the Salary Bar
+
+Compared to on-site postings (based on typical datasets), remote analyst roles tend to pay more, especially when technical stacks (cloud, programming, BI) are included.
+*/
