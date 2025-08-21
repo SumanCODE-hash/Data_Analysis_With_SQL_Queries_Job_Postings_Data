@@ -214,35 +214,50 @@ Blend demand and salary to surface skills offering both **job security** and **f
 ```sql
 -- Remote‑only, specified‑salary roles, deduplicated by skills_name
 WITH skill_demand AS (
-    SELECT sd.skills AS skills_name,
-           COUNT(sj.job_id) AS skills_demand
-    FROM job_postings_fact jp
-    JOIN skills_job_dim sj ON jp.job_id = sj.job_id
-    JOIN skills_dim sd ON sj.skill_id = sd.skill_id
-    WHERE jp.job_title_short = 'Data Analyst'
-      AND jp.job_no_degree_mention = FALSE
-      AND jp.salary_year_avg IS NOT NULL
-      AND jp.job_work_from_home = TRUE
-    GROUP BY sd.skills
-), avg_salary_skills AS (
-    SELECT sd.skills AS skills_name,
-           ROUND(AVG(jp.salary_year_avg), 0) AS avg_salary
-    FROM job_postings_fact jp
-    JOIN skills_job_dim sj ON jp.job_id = sj.job_id
-    JOIN skills_dim sd ON sj.skill_id = sd.skill_id
-    WHERE jp.job_title_short = 'Data Analyst'
-      AND jp.salary_year_avg IS NOT NULL
-      AND jp.job_work_from_home = TRUE
-    GROUP BY sd.skills
+    SELECT
+        skills_dim.skill_id,
+        skills_dim.skills AS Skills_name,
+        COUNT(skills_job_dim.job_id) AS skills_demand  --- Aggregate count on job_id in --table skills_job_dim
+    FROM job_postings_fact
+
+    INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id --Join --able with job_id
+    INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id  --Join table --with skill_id 
+    WHERE job_title_short = 'Data Analyst' AND 
+        job_no_degree_mention = FALSE AND
+        salary_year_avg IS NOT NULL
+    GROUP BY
+        skills_dim.skill_id
+),  avg_salary_skills AS (
+    SELECT 
+        skills_job_dim.skill_id,
+        ROUND(AVG(salary_year_avg), 0) AS avg_salary--- Aggregate count on job_id in --table skills_job_dim
+    FROM job_postings_fact
+
+    INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id --Join --able with job_id
+    INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id  --Join table --with skill_id 
+    WHERE job_title_short = 'Data Analyst' AND 
+        salary_year_avg IS NOT NULL AND
+        job_work_from_home =TRUE
+    GROUP BY
+        skills_job_dim.skill_id
 )
-SELECT d.skills_name,
-       d.skills_demand,
-       s.avg_salary
-FROM skill_demand d
-JOIN avg_salary_skills s ON s.skills_name = d.skills_name
-WHERE d.skills_demand > 15
-ORDER BY d.skills_demand DESC, s.avg_salary DESC
+
+
+SELECT
+    skill_demand.skill_id,
+    skill_demand.Skills_name,
+    skill_demand.skills_demand,
+    avg_salary_skills.avg_salary
+FROM
+    skill_demand
+INNER JOIN avg_salary_skills ON avg_salary_skills.skill_id = skill_demand.skill_id
+WHERE
+ skills_demand > 15
+ORDER BY
+    skills_demand DESC,
+    avg_salary DESC
 LIMIT 25;
+
 ```
 
 **Insights (Q‑5):**
