@@ -1,7 +1,7 @@
 # Introduction
 📊 A professional, step‑by‑step deep‑dive into the remote **Data Analyst** job market. This README distills the results of SQL analyses into clear insights on 💰 top‑paying roles, 🔥 in‑demand skills, and 🎯 skills that balance **high demand** with **high salary**.
 
-# Background
+# Background 
 This analysis targets remote Data Analyst roles to reveal where compensation and skill demand intersect. The data originates from a structured job‑market dataset containing postings, companies, salaries, and required skills. The objective: produce actionable guidance for career planning and portfolio‑ready insights.
 
 ### The questions answered with SQL:
